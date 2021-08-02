@@ -1,0 +1,57 @@
+@base <http://example.com/ns#>.
+@base <http://example.com/ns#>.
+@prefix edm: <http://www.europeana.eu/schemas/edm/>.
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix wlo: <http://purl.org/ontology/wo/>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+
+
+<#personMapping> a rr:TriplesMap;
+	rml:logicalSource [
+		rml:source "/home/makash/Downloads/Person.csv";
+		rml:referenceFormulation ql:CSV
+	];
+	rr:subjectMap [
+		rr:template "http://example.com/{Id}";
+		rr:class ()
+	];
+
+	rr:predicateObjectMap [
+		rr:predicate wlo:name;
+		rr:objectMap [rml:reference "name"]];
+	rr:predicateObjectMap [
+		rr:predicate dcterms:date;
+		rr:objectMap [rml:reference "publishDate"]];
+	rr:predicateObjectMap [
+		rr:predicate foaf:mbox_sha1sum;
+		rr:objectMap [rml:reference "mbox_sha1sum"]];
+	rr:predicateObjectMap [
+		rr:predicate dcterms:publisher;
+		rr:objectMap [rml:reference "publisher"]];
+	rr:predicateObjectMap [
+		rr:predicate edm:country;
+		rr:objectMap [rml:reference "country"]].
+
+<#personMapping> a rr:TriplesMap;
+	rml:logicalSource [
+		rml:source "/home/makash/Downloads/Person.csv";
+		rml:referenceFormulation ql:CSV
+	];
+	rr:subjectMap [
+		rr:template "http://example.com/{null}";
+		rr:class ()
+	];
+
+
+<#personMapping> a rr:TriplesMap;
+	rml:logicalSource [
+		rml:source "/home/makash/Downloads/Person.csv";
+		rml:referenceFormulation ql:CSV
+	];
+	rr:subjectMap [
+		rr:template "http://example.com/{null}";
+		rr:class ()
+	];
